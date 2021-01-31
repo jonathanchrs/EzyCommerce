@@ -32,5 +32,29 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.product_fragment, businessFragment).commit();
             }
         });
+
+        cookbooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CookbooksFragment cookbooksFragment = new CookbooksFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.product_fragment, cookbooksFragment).commit();
+            }
+        });
+
+        mystery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MysteryFragment mysteryFragment = new MysteryFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.product_fragment, mysteryFragment).commit();
+            }
+        });
+
+        scifi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScifiFragment scifiFragment = new ScifiFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.product_fragment, scifiFragment).commit();
+            }
+        });
     }
 }
