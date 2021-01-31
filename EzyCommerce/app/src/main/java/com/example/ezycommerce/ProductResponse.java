@@ -73,4 +73,10 @@ public class ProductResponse {
         this.products = products;
     }
 
+    public Product getProductsById(Integer bookId){
+        for (Product product : products) {
+            if(product.getId() == bookId) return product;
+        }
+        return null;
+    }
 }

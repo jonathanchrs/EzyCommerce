@@ -1,12 +1,14 @@
 package com.example.ezycommerce;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -18,6 +20,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     private Context context;
     private List<Product> productList;
+    private LinearLayout productItem;
 
     public void setProductList(List<Product> productList){
         this.productList = productList;
@@ -42,6 +45,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         productHolder.productNameText.setText(productList.get(i).getName());
         productHolder.producPriceText.setText(productList.get(i).getPrice().toString());
         Glide.with(context).load(productList.get(i).getImg()).into(productHolder.productImageView);
+
+        productItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ProductDetailActivity.class);
+                intent.putExtra("bookId", productList.get(productHolder.getAdapterPosition()).getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -59,6 +71,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             productNameText = view.findViewById(R.id.productName);
             producPriceText = view.findViewById(R.id.productPrice);
             productImageView = view. findViewById(R.id.productImage);
+            productItem = view.findViewById(R.id.product_item);
         }
     }
 }
