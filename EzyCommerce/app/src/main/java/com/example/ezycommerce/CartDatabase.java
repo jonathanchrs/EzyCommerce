@@ -21,7 +21,8 @@ public class CartDatabase extends SQLiteOpenHelper {
                 "productPrice INTEGER NOT NULL, " +
                 "productDescription VARCHAR (9999) NOT NULL," +
                 "productImage VARCHAR (999) NOT NULL," +
-                "quantity INTEGER NOT NULL);");
+                "quantity INTEGER NOT NULL," +
+                "productAuthor VARCHAR (999) NOT NULL);");
     }
 
     @Override
@@ -39,6 +40,7 @@ public class CartDatabase extends SQLiteOpenHelper {
         cartValues.put("productDescription", product.getDescription());
         cartValues.put("productImage", product.getImg());
         cartValues.put("quantity", quantity);
+        cartValues.put("productAuthor", product.getAuthor());
 
         sqLiteDatabase.insert("cart", null, cartValues);
     }
@@ -62,5 +64,10 @@ public class CartDatabase extends SQLiteOpenHelper {
     public void deleteCart(Integer bookId){
         SQLiteDatabase cartDb = this.getWritableDatabase();
         cartDb.execSQL("DELETE FROM cart WHERE bookId = " + bookId);
+    }
+
+    public void deleteAllCart(){
+        SQLiteDatabase cartDb = this.getWritableDatabase();
+        cartDb.execSQL("DELETE FROM cart");
     }
 }

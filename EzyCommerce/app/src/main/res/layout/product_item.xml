@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="#ffff"
+    android:background="@drawable/product_item_background"
     android:layout_marginTop="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginLeft="16dp">
@@ -28,7 +28,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="20px"
-            android:layout_marginRight="20px">
+            android:layout_marginRight="20px"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/productName"
@@ -36,7 +37,17 @@
                 android:layout_height="wrap_content"
                 android:text="PRODUCT NAME"
                 android:textColor="#000"
-                android:textSize="7pt"/>
+                android:textSize="7pt"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:id="@+id/productAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="John Doe"
+                android:textColor="#000"
+                android:textSize="6pt"/>
 
             <TextView
                 android:id="@+id/productPrice"
@@ -44,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="$500"
                 android:textColor="#000"
-                android:textSize="5pt"/>
+                android:textSize="6pt"/>
 
         </LinearLayout>
 

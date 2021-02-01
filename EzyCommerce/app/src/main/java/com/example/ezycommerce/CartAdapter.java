@@ -18,10 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
-
     private Context context;
     private List<Cart> cartList;
-    private Button increaseQty, decreaseQty, subtotal, taxes, total;
+    private Button increaseQty, decreaseQty;
     private CartDatabase cartDatabase;
 
     public CartAdapter(Context context){
@@ -71,9 +70,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                 taxesValue = Double.valueOf(subtotalValue) / 10;
                 totalValue = subtotalValue + taxesValue;
 
-                subtotal.setText(subtotalValue.toString());
-                taxes.setText(taxesValue.toString());
-                total.setText(totalValue.toString());
+                CartActivity cartActivity = (CartActivity) context;
+                cartActivity.setPriceTextView(subtotalValue, taxesValue, totalValue);
 
                 notifyDataSetChanged();
             }
@@ -102,9 +100,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                     taxesValue = Double.valueOf(subtotalValue) / 10;
                     totalValue = subtotalValue + taxesValue;
 
-                    subtotal.setText(subtotalValue.toString());
-                    taxes.setText(taxesValue.toString());
-                    total.setText(totalValue.toString());
+                    CartActivity cartActivity = (CartActivity) context;
+                    cartActivity.setPriceTextView(subtotalValue, taxesValue, totalValue);
                 }
                 else{
                     cartList.get(cartHolder.getAdapterPosition()).setQuantity(currentQuantity - 1);
@@ -122,9 +119,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
                     taxesValue = Double.valueOf(subtotalValue) / 10;
                     totalValue = subtotalValue + taxesValue;
 
-                    subtotal.setText(subtotalValue.toString());
-                    taxes.setText(taxesValue.toString());
-                    total.setText(totalValue.toString());
+                    CartActivity cartActivity = (CartActivity) context;
+                    cartActivity.setPriceTextView(subtotalValue, taxesValue, totalValue);
                 }
                 notifyDataSetChanged();
             }
@@ -152,6 +148,5 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
             increaseQty = view.findViewById(R.id.increaseQty);
             decreaseQty = view.findViewById(R.id.decreaseQty);
         }
-
     }
 }

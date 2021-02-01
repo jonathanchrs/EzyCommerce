@@ -6,51 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100px">
+        android:weightSum="1">
 
         <Button
             android:id="@+id/btnBusiness"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:text="Business"
             android:gravity="center"
             android:background="#5e60ce"
             android:textSize="6pt"
-            android:textColor="#ffff" />
+            android:textColor="#ffff"
+            android:layout_weight="0.25"/>
 
         <Button
             android:id="@+id/btnCookbooks"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:text="Cookbooks"
             android:gravity="center"
             android:background="#72efdd"
-            android:textSize="6pt"/>
+            android:textSize="6pt"
+            android:layout_weight="0.25"/>
 
         <Button
             android:id="@+id/btnMystery"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:text="Mystery"
             android:gravity="center"
             android:background="#5e60ce"
             android:textSize="6pt"
-            android:textColor="#ffff"/>
+            android:textColor="#ffff"
+            android:layout_weight="0.25"/>
 
         <Button
             android:id="@+id/btnScifi"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:text="Sci-Fi"
             android:gravity="center"
             android:background="#72efdd"
-            android:textSize="6pt"/>
+            android:textSize="6pt"
+            android:layout_weight="0.25"/>
 
     </LinearLayout>
 
