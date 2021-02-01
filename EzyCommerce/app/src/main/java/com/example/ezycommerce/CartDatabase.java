@@ -16,7 +16,7 @@ public class CartDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE cart (cartId INTEGER PRIMARY KEY AUTOINCREMENT," +
+        sqLiteDatabase.execSQL("CREATE TABLE cart (bookId INTEGER PRIMARY KEY NOT NULL," +
                 "productName VARCHAR (50) NOT NULL, " +
                 "productPrice INTEGER NOT NULL, " +
                 "productDescription VARCHAR (9999) NOT NULL," +
@@ -33,6 +33,7 @@ public class CartDatabase extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues cartValues = new ContentValues();
+        cartValues.put("bookId", product.getId());
         cartValues.put("productName", product.getName());
         cartValues.put("productPrice", product.getPrice());
         cartValues.put("productDescription", product.getDescription());
@@ -46,5 +47,20 @@ public class CartDatabase extends SQLiteOpenHelper {
         SQLiteDatabase cartDb = this.getWritableDatabase();
         Cursor cartData = cartDb.rawQuery("SELECT * FROM cart", null);
         return cartData;
+    }
+
+    public void increaseQuantity(Integer bookId){
+        SQLiteDatabase cartDb = this.getWritableDatabase();
+        cartDb.execSQL("UPDATE cart SET quantity = quantity + 1 WHERE bookId = " + bookId);
+    }
+
+    public void decreaseQuantity(Integer bookId){
+        SQLiteDatabase cartDb = this.getWritableDatabase();
+        cartDb.execSQL("UPDATE cart SET quantity = quantity - 1 WHERE bookId = " + bookId);
+    }
+
+    public void deleteCart(Integer bookId){
+        SQLiteDatabase cartDb = this.getWritableDatabase();
+        cartDb.execSQL("DELETE FROM cart WHERE bookId = " + bookId);
     }
 }

@@ -58,7 +58,20 @@ public class ProductDetailActivity extends AppCompatActivity {
                 btnBuy.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        cartDatabase.insertCart(product, 1);
+                        Cursor cursor = cartDatabase.getCartData();
+                        Integer counter = 0;
+
+                        while (cursor.moveToNext()){
+                            if(cursor.getInt(0) == product.getId()){
+                                counter++;
+                                cartDatabase.increaseQuantity(product.getId());
+                            }
+                        }
+
+                        if(counter == 0){
+                            cartDatabase.insertCart(product, 1);
+                        }
+
                         Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
                         startActivity(intent);
                     }

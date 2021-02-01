@@ -8,23 +8,17 @@ import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
 
-    private CartDatabase cartDatabase;
-    private ArrayList<Product> productList;
+    private CartListFragment cartListFragment;
+    private CalculatePriceFragment calculatePriceFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        productList = new ArrayList<>();
-        cartDatabase = new CartDatabase(this);
+        cartListFragment = new CartListFragment();
+        calculatePriceFragment = new CalculatePriceFragment();
 
-        Cursor cartData = cartDatabase.getCartData();
-
-        while (cartData.moveToNext()){
-            System.out.println(cartData.getString(1));
-            System.out.println(cartData.getString(3));
-            System.out.println(cartData.getString(4));
-        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.cart_list_fragment, cartListFragment).replace(R.id.total_price_fragment, calculatePriceFragment).commit();
     }
 }
