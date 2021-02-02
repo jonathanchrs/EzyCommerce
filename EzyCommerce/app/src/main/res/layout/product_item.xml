@@ -6,7 +6,8 @@
     android:background="@drawable/product_item_background"
     android:layout_marginTop="16dp"
     android:layout_marginRight="16dp"
-    android:layout_marginLeft="16dp">
+    android:layout_marginLeft="16dp"
+    android:padding="30px">
 
     <LinearLayout
         android:id="@+id/product_item"
@@ -36,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PRODUCT NAME"
-                android:textColor="#000"
+                android:textColor="#ffff"
                 android:textSize="7pt"
                 android:textStyle="bold"
                 android:textAllCaps="true"/>
@@ -46,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="John Doe"
-                android:textColor="#000"
+                android:textColor="#ffff"
                 android:textSize="6pt"/>
 
             <TextView
@@ -54,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="$500"
-                android:textColor="#000"
+                android:textColor="#ffff"
                 android:textSize="6pt"/>
 
         </LinearLayout>

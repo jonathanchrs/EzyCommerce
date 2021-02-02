@@ -5,7 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_marginTop="20px"
-    android:layout_marginRight="60px">
+    android:layout_marginRight="60px"
+    android:layout_marginLeft="60px"
+    android:padding="40px"
+    android:background="@drawable/product_item_background">
 
     <ImageView
         android:id="@+id/cartImage"
@@ -14,8 +17,10 @@
 
     <LinearLayout
         android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="15px"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/cartName"
@@ -23,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Cart Name"
             android:textSize="7pt"
-            android:textColor="#000"
+            android:textColor="#ffff"
             android:textStyle="bold"/>
 
         <TextView
@@ -32,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Do you think you're living an ordinary life? You are so mistaken it's difficult to even explain. "
             android:textSize="6pt"
-            android:textColor="#000"/>
+            android:textColor="#ffff"/>
 
         <TextView
             android:id="@+id/cartPrice"
@@ -40,7 +45,7 @@
             android:layout_height="wrap_content"
             android:text="$500"
             android:textSize="7pt"
-            android:textColor="#000"
+            android:textColor="#ffff"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -52,29 +57,44 @@
 
         <EditText
             android:id="@+id/textQuantity"
-            android:layout_width="180px"
+            android:layout_width="100px"
             android:layout_height="60dp"
-            android:text="1"/>
+            android:text="1"
+            android:textColor="#ffff"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical">
+        android:layout_gravity="center_vertical"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/increaseQty"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="+"/>
+            android:text="+"
+            android:background="@drawable/button_quantity_background"
+            android:textSize="7pt"
+            android:textColor="#ffff"
+            android:layout_weight="0.5"/>
 
         <Button
             android:id="@+id/decreaseQty"
-            android:layout_width="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="-"/>
+            android:background="@drawable/button_quantity_background"
+            android:text="-"
+            android:textColor="#ffff"
+            android:textSize="7pt"
+            android:layout_weight="0.5"/>
 
     </LinearLayout>
 

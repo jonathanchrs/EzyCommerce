@@ -22,7 +22,7 @@ import retrofit2.Retrofit;
 public class ProductDetailActivity extends AppCompatActivity {
 
     private ImageView bookImage;
-    private TextView bookTitle, bookPrice, bookDescription;
+    private TextView bookTitle, bookPrice, bookDescription, username;
     private Button btnBuy;
     private CartDatabase cartDatabase;
 
@@ -38,6 +38,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         bookPrice = findViewById(R.id.book_price);
         bookDescription = findViewById(R.id.book_description);
         btnBuy = findViewById(R.id.btnBuy);
+        username = findViewById(R.id.username);
 
         Intent intent = getIntent();
         Integer bookId = intent.getIntExtra("bookId", 0);
@@ -54,6 +55,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 bookTitle.setText(product.getName());
                 bookPrice.setText("$" + product.getPrice());
                 bookDescription.setText(product.getDescription());
+                username.setText(response.body().getNama());
 
                 btnBuy.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -11,13 +11,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class CartActivity extends AppCompatActivity {
 
     private RecyclerView cartRecyclerView;
-    private TextView subtotal, taxes, total;
+    private TextView subtotal, taxes, total, username;
     private Button btnCancel, btnNext;
 
     @Override
@@ -37,6 +43,7 @@ public class CartActivity extends AppCompatActivity {
         subtotal = findViewById(R.id.subtotal);
         taxes = findViewById(R.id.taxes);
         total = findViewById(R.id.total);
+        username = findViewById(R.id.username);
 
         setPriceCalculation();
 
@@ -58,7 +65,24 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CartActivity.this, MainActivity.class);
                 cartDatabase.deleteAllCart();
+                Toast.makeText(CartActivity.this, "Transaction Success !", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+            }
+        });
+
+        Retrofit retrofitInstance = ProductApiClient.getInstance();
+        ProductService productService = retrofitInstance.create(ProductService.class);
+        Call<ProductResponse> productCall = productService.getProduct("2201784674", "jonathanChristopher");
+
+        productCall.enqueue(new Callback<ProductResponse>() {
+            @Override
+            public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+                username.setText(response.body().getNama());
+            }
+
+            @Override
+            public void onFailure(Call<ProductResponse> call, Throwable t) {
+                productCall.cancel();
             }
         });
     }
@@ -85,9 +109,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void setPriceTextView(Integer subtotalValue, Double taxesValue, Double totalValue){
-        subtotal.setText(subtotalValue.toString());
-        taxes.setText(taxesValue.toString());
-        total.setText(totalValue.toString());
+        subtotal.setText("$" + subtotalValue.toString());
+        taxes.setText("$" + taxesValue.toString());
+        total.setText("$" + totalValue.toString());
     }
 
     public void setPriceCalculation(){
@@ -104,8 +128,8 @@ public class CartActivity extends AppCompatActivity {
         taxesValue = Double.valueOf(subtotalValue) / 10;
         totalValue = subtotalValue + taxesValue;
 
-        subtotal.setText(subtotalValue.toString());
-        taxes.setText(taxesValue.toString());
-        total.setText(totalValue.toString());
+        subtotal.setText("$" + subtotalValue.toString());
+        taxes.setText("$" + taxesValue.toString());
+        total.setText("$" + totalValue.toString());
     }
 }

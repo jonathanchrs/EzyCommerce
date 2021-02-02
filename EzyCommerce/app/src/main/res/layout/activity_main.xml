@@ -7,61 +7,76 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/colorPrimary">
+    android:background="#000">
+
+    <include
+        layout="@layout/custom_app_bar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_marginLeft="60px"
+        android:layout_marginRight="60px">
 
         <Button
             android:id="@+id/btnBusiness"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:text="Business"
             android:gravity="center"
-            android:background="#5e60ce"
+            android:background="@drawable/button_background"
             android:textSize="6pt"
             android:textColor="#ffff"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.25"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btnCookbooks"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:text="Cookbooks"
             android:gravity="center"
-            android:background="#72efdd"
+            android:textColor="#ffff"
+            android:background="@drawable/button_background"
             android:textSize="6pt"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.25"
+            android:layout_marginLeft="15px"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btnMystery"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:text="Mystery"
             android:gravity="center"
-            android:background="#5e60ce"
+            android:background="@drawable/button_background"
             android:textSize="6pt"
             android:textColor="#ffff"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.25"
+            android:layout_marginLeft="15px"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btnScifi"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:text="Sci-Fi"
             android:gravity="center"
-            android:background="#72efdd"
+            android:textColor="#ffff"
+            android:background="@drawable/button_background"
             android:textSize="6pt"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.25"
+            android:layout_marginLeft="15px"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/product_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60px"/>
 
 </LinearLayout>

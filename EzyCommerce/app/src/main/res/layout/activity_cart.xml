@@ -6,169 +6,188 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CartActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#000">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="60px"
-            android:layout_marginLeft="60px"
-            android:layout_marginRight="40px">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shopping Cart"
-                android:textColor="#000"
-                android:textSize="8pt"
-                android:textStyle="bold"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_marginTop="30px"
-                android:id="@+id/cartRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
+        <include
+            layout="@layout/custom_app_bar"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="60px"
-            android:layout_marginLeft="60px"
-            android:layout_marginRight="40px">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginTop="60px">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subtotal"
-                    android:textColor="#000"
-                    android:textSize="7pt"
-                    android:textStyle="bold"/>
+                    android:text="Shopping Cart"
+                    android:textColor="#ffff"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="60px"/>
 
-                <TextView
-                    android:id="@+id/subtotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$200"
-                    android:layout_marginLeft="200px"
-                    android:textColor="#000"
-                    android:textSize="6pt"/>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="30px"
+                    android:id="@+id/cartRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginTop="60px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="40px">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Shipping"
-                    android:textColor="#000"
-                    android:textSize="7pt"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subtotal"
+                        android:textColor="#ffff"
+                        android:textSize="8pt"
+                        android:textStyle="bold"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/subtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$200"
+                        android:textColor="#ffff"
+                        android:textSize="6pt"
+                        android:layout_weight="0.5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="FREE"
-                    android:layout_marginLeft="200px"
-                    android:textColor="#000"
-                    android:textSize="6pt"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shipping"
+                        android:textColor="#ffff"
+                        android:textSize="8pt"
+                        android:textStyle="bold"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FREE"
+                        android:textColor="#ffff"
+                        android:textSize="6pt"
+                        android:layout_weight="0.5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Taxes"
+                        android:textColor="#ffff"
+                        android:textSize="8pt"
+                        android:textStyle="bold"
+                        android:layout_weight="1.1"/>
+
+                    <TextView
+                        android:id="@+id/taxes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$20"
+                        android:textColor="#ffff"
+                        android:textSize="6pt"
+                        android:layout_weight="0.5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="50px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL"
+                        android:textColor="#ffff"
+                        android:textSize="8pt"
+                        android:textStyle="bold"
+                        android:layout_weight="1.1"/>
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$220"
+                        android:textColor="#ffff"
+                        android:textSize="6pt"
+                        android:layout_weight="0.5"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Taxes"
-                    android:textColor="#000"
-                    android:textSize="7pt"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/taxes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$20"
-                    android:layout_marginLeft="255px"
-                    android:textColor="#000"
-                    android:textSize="6pt"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="50px">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TOTAL"
-                    android:textColor="#000"
-                    android:textSize="7pt"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$220"
-                    android:layout_marginLeft="238px"
-                    android:textColor="#000"
-                    android:textSize="6pt"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60px"
-            android:layout_marginLeft="60px"
-            android:layout_marginRight="40px"
-            android:layout_marginBottom="100px">
-
-            <Button
-                android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next"
-                android:textAllCaps="false"/>
+                android:layout_marginTop="60px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="40px"
+                android:layout_marginBottom="100px">
 
-            <Button
-                android:id="@+id/btnCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="110dp"
+                    android:layout_height="110px"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="#ffff"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_background"/>
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="110dp"
+                    android:layout_height="110px"
+                    android:text="Cancel"
+                    android:layout_marginLeft="20px"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="#ffff"
+                    android:background="@drawable/button_background"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </ScrollView>
